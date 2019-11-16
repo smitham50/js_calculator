@@ -9,6 +9,10 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: 'Kalam', cursive;
+}
+
 .calculator {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -75,6 +79,8 @@ button:hover {
 .calculator-keys {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
 }
 
 .equal-sign {
