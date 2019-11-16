@@ -76,3 +76,14 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+.equal-sign {
+  background-color: #2e86c0;
+  border-color: #337cac;
+  color: #fff;
+  grid-row-start: 2;
+  grid-row-end: 6;
+  height: 100%;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
