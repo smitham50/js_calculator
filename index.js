@@ -31,15 +31,15 @@ clear.addEventListener('click', () => {
 //operators
 const operators = document.querySelectorAll('.operator');
 const equals = document.querySelector('.equal-sign');
+let num1, num2;
 
 operators.forEach(operator => {
   operator.addEventListener('click', (e) => {
     afterOperator = true;
     //add
     if (e.target.value === '+') {
-      let num1 = parseInt(disp.value);
-      let num2;
-      
+      num1 = parseInt(disp.value);
+
       //after equals
       equals.addEventListener('click', () => {
         num2 = parseInt(disp.value);
