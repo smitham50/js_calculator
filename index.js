@@ -7,6 +7,13 @@ const disp = document.querySelector(".calculator-screen");
 //first key click after operator?
 let afterOperator = false;
 
+//add decimal
+const dec = document.querySelector('.decimal')
+
+dec.addEventListener('click', (e) => {
+  disp.value += e.target.value;
+})
+
 //add event listeners to int buttons
 ints.forEach(int => {
   int.addEventListener('click', (e) => {
@@ -36,7 +43,7 @@ let num1, num2, adding = false, subtracting = false, dividing = false, multiplyi
 operators.forEach(operator => {
   operator.addEventListener('click', (e) => {
     afterOperator = true;
-    num1 = parseInt(disp.value);
+    num1 = parseFloat(disp.value);
     //add
     if (e.target.value === '+') {
       adding = true;
@@ -60,25 +67,25 @@ operators.forEach(operator => {
 
     //after equals
     equals.addEventListener('click', () => {
-      num2 = parseInt(disp.value);
+      num2 = parseFloat(disp.value);
       
       if (adding) {
-        disp.value = (num1 + num2).toString();
+        disp.value = parseFloat(num1 + num2).toFixed(6).toString();
         adding = false;
       };
 
       if (subtracting) {
-        disp.value = (num1 - num2).toString();
+        disp.value = parseFloat(num1 - num2).toFixed(6).toString();
         subtracting = false;     
       };
 
       if (multiplying) {
-        disp.value = (num1 * num2).toString();
+        disp.value = parseFloat(num1 * num2).toFixed(6).toString();
         multiplying = false; 
       };
 
       if (dividing) {
-        disp.value = (num1 / num2).toString();
+        disp.value = parseFloat(num1 / num2).toFixed(6).toString();
         dividing = false;
       }
 
