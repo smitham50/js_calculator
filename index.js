@@ -4,11 +4,19 @@ const ints = document.querySelectorAll(".int");
 //display
 const disp = document.querySelector(".calculator-screen");
 
+//first key click after operator?
+let afterOperator = false;
+
 //add event listeners to int buttons
 ints.forEach(int => {
   int.addEventListener('click', (e) => {
     if (disp.value.length < 12) {
-      disp.value === "0" ? disp.value = e.target.value : disp.value += e.target.value;
+      if (!afterOperator) {
+        disp.value === "0" ? disp.value = e.target.value : disp.value += e.target.value;
+      } else {
+        disp.value = e.target.value;
+        afterOperator = false;
+      }
     }
   });
 });
@@ -26,17 +34,18 @@ const equals = document.querySelector('.equal-sign');
 
 operators.forEach(operator => {
   operator.addEventListener('click', (e) => {
+    afterOperator = true;
     //add
     if (e.target.value === '+') {
       let num1 = parseInt(disp.value);
       let num2;
-      let firstClick = false;
-      //enter next num and clear display
       
-       
-      num2 = parseInt(disp.value);
-      equals.addEventListener('click', (num1, num2) => {
+      //after equals
+      equals.addEventListener('click', () => {
+        num2 = parseInt(disp.value);
         disp.value = (num1 + num2).toString();
+        num1 = 0;
+        num2 = 0;
       })
     }
   });
