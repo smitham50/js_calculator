@@ -68,27 +68,33 @@ operators.forEach(operator => {
     //after equals
     equals.addEventListener('click', () => {
       num2 = parseFloat(disp.value);
+
+      let result;
       
       if (adding) {
-        disp.value = parseFloat(num1 + num2).toFixed(6).toString();
+        result = (num1 + num2) % 1 === 0 ? parseInt(num1 + num2).toString() : parseFloat(num1 + num2).toFixed(6).toString()
+        disp.value = result;
         adding = false;
       };
 
       if (subtracting) {
-        disp.value = parseFloat(num1 - num2).toFixed(6).toString();
+        result = (num1 - num2) % 1 === 0 ? parseInt(num1 - num2).toString() : parseFloat(num1 - num2).toFixed(6).toString()
+        disp.value = result;
         subtracting = false;     
       };
 
       if (multiplying) {
-        disp.value = parseFloat(num1 * num2).toFixed(6).toString();
+        result = (num1 * num2) % 1 === 0 ? parseInt(num1 * num2).toString() : parseFloat(num1 * num2).toFixed(6).toString()
+        disp.value = result;
         multiplying = false; 
       };
 
       if (dividing) {
-        disp.value = parseFloat(num1 / num2).toFixed(6).toString();
+        result = (num1 / num2) % 1 === 0 ? parseInt(num1 / num2).toString() : parseFloat(num1 / num2).toFixed(6).toString()
+        disp.value = result;
         dividing = false;
       }
-
+      result = 0;
       num1 = 0;
       num2 = 0;
     })
