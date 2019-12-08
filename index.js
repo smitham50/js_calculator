@@ -11,7 +11,9 @@ let afterOperator = false;
 const dec = document.querySelector('.decimal')
 
 dec.addEventListener('click', (e) => {
-  disp.value += e.target.value;
+  if (!disp.value.split('').includes(e.target.value)) {
+    disp.value += e.target.value;
+  }
 })
 
 //add event listeners to int buttons
